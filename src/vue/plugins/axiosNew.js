@@ -1,9 +1,8 @@
 // src/utils/net.js
 // import wx from 'wx'; // 引用微信小程序wx对象
-import bmobConfig from './config/bmob' // bmob配置文件
+import bmobConfig from './config/baseConfig' // bmob配置文件
 
 const net = {
-
   reqPost(url,data) {
     wx.showLoading({
       title: '加载中'// 数据请求前loading，提高用户体验
@@ -11,7 +10,7 @@ const net = {
 
     return new Promise((resolve, reject) => {
       wx.request({
-        url: url,
+        url: bmobConfig.serverUrl + url,
         data: data,
         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         header: {
@@ -31,7 +30,7 @@ const net = {
           }
           resolve(res.data);
         },
-        fail: function (error) {
+        fail: function (failerror) {
           // fail
           wx.hideLoading();
           console.log('fail')
@@ -71,7 +70,7 @@ const net = {
           }
           resolve(res.data);
         },
-        fail: function (error) {
+        fail: function (failError) {
           // fail
           wx.hideLoading();
           console.log('fail')
@@ -84,8 +83,6 @@ const net = {
         }
       })
     })
-  },
-
+  }
 }
-
 export default net;// 暴露出来供其他文件引用

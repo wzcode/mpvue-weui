@@ -1,8 +1,8 @@
 {
-  "name": "mpvue-weui",
-  "version": "1.0.5",
+  "name": "dianweibao",
+  "version": "1.0.0",
   "description": "用 vue 写小程序，使用 mpvue 框架重写 WeUI。",
-  "author": "kuangpengfei <kuangpf1995@gmail.com>",
+  "author": "河北大象科技 <wzhelp@163.com>",
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "flyio": "^0.5.4",
     "mpvue": "^1.0.12",
     "vuex": "^2.3.1"
@@ -47,11 +48,12 @@
     "mpvue-template-compiler": "^1.0.12",
     "mpvue-webpack-target": "^1.0.0",
     "opn": "^5.1.0",
-    "portfinder": "^1.0.13",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
+    "portfinder": "^1.0.13",
     "postcss-loader": "^2.0.6",
     "postcss-mpvue-wxss": "^1.0.0",
+    "prettier": "^1.12.1",
     "px2rpx-loader": "^0.1.8",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",

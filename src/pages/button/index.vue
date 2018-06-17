@@ -6,10 +6,10 @@
         <div class="page__desc">按钮，WeUI采用小程序原生的按钮为主体，加入一些间距的样式。</div>
       </div>
       <div class="page__bd page__bd_spacing">
-        <button class="weui-btn" type="primary">页面主操作 Normal</button>
-        <button class="weui-btn" type="primary" disabled="true">页面主操作 Disabled</button>
+        <button class="weui-btn" @click="increment" type="primary">调用sohuGet请求</button>
+        <button class="weui-btn" type="primary" disabled="true">页 Disabled</button>
 
-        <button class="weui-btn" type="default">页面次要操作 Normal</button>
+        <button class="weui-btn" @click="getUserInfo" type="default"> 获取用户信息</button>
         <button class="weui-btn" type="default" disabled="true">页面次要操作 Disabled</button>
 
         <button class="weui-btn" type="warn">警告类操作 Normal</button>
@@ -33,10 +33,24 @@
 
 <script>
 // Use Vuex
-
+import t from './../../api/test'
 export default {
 
   methods: {
+    getUserInfo () {
+      wx.getUserInfo({
+        success: function (res) {
+          console.log(res.Data)
+          return
+        },
+      })
+    },
+    increment () {
+      t.logIn('username', 'password').then(res => {
+        console.log('aaa', res)
+      });
+      console.log('sdfasdfasfasdf');
+    }
 
   }
 }
