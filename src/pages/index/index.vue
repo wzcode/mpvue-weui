@@ -17,6 +17,8 @@
       <!--<img src="../../../static/img/icon.png">-->
     </div>
 
+    <button class="weui-btn" @click="loginTemp" type="primary">临时登陆</button>
+
     <div class="page__bd">
       <div class="weui-grids">
         <block v-for="item in grids" :key="index">
@@ -54,6 +56,8 @@
 </template>
 
 <script>
+  import login from './../../api/user/userLoginApi'
+  import user from './../../api/user/userApi'
 export default {
   data() {
     return {
@@ -131,12 +135,31 @@ export default {
   },
 
   components: {},
-  created(){
 
-  },
   methods: {
-    loadData(){
+    loginTemp(){
+      login.loginByAccountApi('userName','passWord').then(res => {
+        console.log(res.Data);
+        login.loginAfter(res.Data)
+      })
+    },
+    loadData () {
+      console.log('小程序 start')
+      user.userInfoApi().then(res =>{
+        console.log('jiekoufanhui',res);
+          if (res.Data != null ) {
+            this.username = res.Data.RealName;
+            this.companyName = res.Data.CompanyInfo.TenantName
+            this.shoppName = res.Data.DefaultShop.Name
+          } else {
+            this.username = '游客';
+            this.companyName = '店维宝'
+            this.shoppName = '店维宝'
+          }
+      })
+      // user.getUserInfo().then ( res=>{
 
+      // })
     },
     kindToggle(e) {
       var id = e.currentTarget.id,
@@ -151,8 +174,10 @@ export default {
       this.list = list;
     }
   },
+  mounted () {
+    this.loadData ()
+  }
 
-  created() { }
 };
 </script>
 

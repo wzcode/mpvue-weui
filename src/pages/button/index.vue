@@ -35,7 +35,6 @@
 // Use Vuex
 import t from './../../api/test'
 export default {
-
   methods: {
     getUserInfo () {
       wx.login({
