@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-        tabs: ["选项一", "选项二", "选项三"],
+        tabs: ["设备报修", "设施报修", "未修复",'已修复'],
         activeIndex: 0,
         fontSize: 30
       }
