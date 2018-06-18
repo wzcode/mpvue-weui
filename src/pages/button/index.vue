@@ -38,9 +38,17 @@ export default {
 
   methods: {
     getUserInfo () {
+      wx.login({
+        success: function (res) {
+          console.log(res)
+          return
+        }
+      })
+
+      return
       wx.getUserInfo({
         success: function (res) {
-          console.log(res.Data)
+          console.log(res)
           return
         },
       })

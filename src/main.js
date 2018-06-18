@@ -6,6 +6,7 @@ Vue.config.productionTip = false;
 App.mpType = 'app';
 Vue.prototype.$store = store;
 import '../static/weui/weui.css'
+Vue.config.productionTip = false
 const app = new Vue({
   App
 })
@@ -60,7 +61,7 @@ export default {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'weui for mpvue',
+      navigationBarTitleText: '店维宝',
       navigationBarTextStyle: 'black'
     }
     /* tabBar: {

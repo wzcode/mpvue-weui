@@ -1,6 +1,7 @@
 <template>
   <div>
     <p class="card">
+      阿斯顿发斯蒂芬
       {{text}}
     </p>
   </div>

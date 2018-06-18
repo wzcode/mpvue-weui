@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <div class="page__hd">
-      <div class="page__title">店维宝报单系统</div>
+      <div class="page__title">欢迎登陆店维宝系统</div>
+      <div class="page__title">天平洋咖啡店</div>
+      <div class="page__title">李晓 下午好</div>
       <div class="page__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</div>
     </div>
     <div class="page__bd page__bd_spacing">
@@ -15,7 +17,7 @@
             <div :class="{'kind-list__item-bd_show':item1.open}" class="kind-list__item-bd">
               <div :class="{'weui-cells_show':item1.open}" class="weui-cells">
                 <div v-for="(item2,index2) in item1.pages" :key="index2">
-                  <navigator class="weui-cell weui-cell_access" redirect="true" :url=" '/pages/'+item2+'/'+item2+ ''">
+                  <navigator class="weui-cell weui-cell_access"  :url=" '/pages/'+item2+'/'+item2+ ''">
                     <div class="weui-cell__bd">{{item2}}</div>
                     <div class="weui-cell__ft weui-cell__ft_in-access"></div>
                   </navigator>
@@ -48,6 +50,7 @@ export default {
             'article',
             'badge',
             'flex',
+            'setps',
             'footer',
             'gallery',
             'grid',
