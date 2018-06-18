@@ -60,7 +60,7 @@ export default {
     ], // Will be filled in webpack
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#f08300',
       navigationBarTitleText: '店维宝',
       navigationBarTextStyle: 'black'
     }
