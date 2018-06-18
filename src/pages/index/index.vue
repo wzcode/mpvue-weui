@@ -1,24 +1,46 @@
 <template>
   <div class="page">
-    <div class="page__hd">
-      <div class="page__title">欢迎登陆店维宝系统</div>
-      <div class="page__title">天平洋咖啡店</div>
-      <div class="page__title">李晓 下午好</div>
-      <div class="page__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</div>
+    <!--<div class="page__hd">-->
+      <!--<div class="page__title">欢迎登陆店维宝系统</div>-->
+      <!--<div class="page__title">天平洋咖啡店</div>-->
+      <!--<div class="page__title">李晓 下午好</div>-->
+      <!--<div class="page__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</div>-->
+    <!--</div>-->
+    <div class="shoppIcon" >
+      <p>{{companyName}}<span >{{users}}</span> : <span v-if="morning">早上好</span>
+        <span v-if="forenoon">上午好</span>
+        <span v-if="afternoon">下午好</span>
+        <span v-if="night">晚上好</span>！
+      </p>
+      <p>{{shoppName}}</p>
+      <p>欢迎登陆店维宝系统</p>
+      <!--<img src="../../../static/img/icon.png">-->
     </div>
+
+    <div class="page__bd">
+      <div class="weui-grids">
+        <block v-for="item in grids" :key="index">
+          <navigator :url="item.url" class="weui-grid" hover-class="weui-grid_active">
+            <image class="weui-grid__icon" :src="item.src" />
+            <div class="weui-grid__label">{{item.name}}</div>
+          </navigator>
+        </block>
+      </div>
+    </div>
+
     <div class="page__bd page__bd_spacing">
       <div class="kind-list">
         <div v-for="(item1,index1) in list" :key="index1">
           <div class="kind-list__item">
             <div :id=item1.id :class="{'kind-list__item-hd_show':item1.open}" class="weui-flex,kind-list__item-hd" @click="kindToggle">
-              <div class="weui-flex__item">{{item1.name}}</div>
+              <div class="weui-flex__item">{{item1.name}} </div>
               <img class="kind-list__img" :src=" '/static/images/icon_nav_'+item1.id+'.png'">
             </div>
             <div :class="{'kind-list__item-bd_show':item1.open}" class="kind-list__item-bd">
               <div :class="{'weui-cells_show':item1.open}" class="weui-cells">
                 <div v-for="(item2,index2) in item1.pages" :key="index2">
                   <navigator class="weui-cell weui-cell_access"  :url=" '/pages/'+item2+'/'+item2+ ''">
-                    <div class="weui-cell__bd">{{item2}}</div>
+                    <div class="weui-cell__bd">{{item2}} </div>
                     <div class="weui-cell__ft weui-cell__ft_in-access"></div>
                   </navigator>
                 </div>
@@ -35,6 +57,24 @@
 export default {
   data() {
     return {
+      users: '李晓',
+      forenoon:false,
+      afternoon:false,
+      night:false,
+      morning:true,
+      companyName: '小放牛',
+      shoppName: '北国店',
+      grids: [
+        { src: '/static/images/icon_nav_button.png', url: '/pages/setps/setps', name: '步骤条' },
+        { src: '/static/images/icon_nav_cell.png', name: '报修' },
+        { src: '/static/images/icon_nav_toast.png', name: 'Toast' },
+        { src: '/static/images/icon_nav_dialog.png', name: 'Dialog' },
+        { src: '/static/images/icon_nav_button.png', name: 'Progress' },
+        { src: '/static/images/icon_nav_panel.png', name: 'Msg' },
+        { src: '/static/images/icon_nav_article.png', name: 'Article' },
+        { src: '/static/images/icon_nav_actionSheet.png', name: 'ActionSheet' },
+        { src: '/static/images/icon_nav_icons.png', name: 'Icons' }
+      ],
       list: [
         {
           id: 'form',
@@ -91,8 +131,13 @@ export default {
   },
 
   components: {},
+  created(){
 
+  },
   methods: {
+    loadData(){
+
+    },
     kindToggle(e) {
       var id = e.currentTarget.id,
         list = this.list;
@@ -181,5 +226,22 @@ export default {
 
 .kind-list__item-bd_show {
   height: auto;
+}
+
+
+.shoppIcon{
+  background-color: #f08300;
+  text-align: center;
+  color:#fff;
+  font-size: 0.35rem;
+  padding: 0.4rem 0.8rem;
+}
+.shoppIcon p{
+  margin: 0.1rem 0;
+  font-size: 0.27rem;
+}
+.shoppIcon img{
+  width: 1.5rem;
+
 }
 </style>

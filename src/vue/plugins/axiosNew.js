@@ -9,6 +9,7 @@ const net = {
     })
 
     return new Promise((resolve, reject) => {
+      console.log('request', wx.getStorageSync('token'));
       wx.request({
         url: bmobConfig.serverUrl + url,
         data: data,
@@ -16,7 +17,7 @@ const net = {
         header: {
           // 'X-Bmob-Application-Id': bmobConfig.applicationId,
           // 'X-Bmob-REST-API-Key': bmobConfig.restApiKey,
-          'Content-Type': 'application/json'
+          'DwbCAccToken': wx.getStorageSync('DwbCAccToken')
         }, // 设置请求的 header
         success: function (res) {
           // success
