@@ -22,6 +22,7 @@ export default {
       'pages/input/input',
       'pages/slider/slider',
       'pages/uploader/uploader',
+      'pages/workOrder/workOrder',
 
       'pages/article/article',
       'pages/badge/badge',

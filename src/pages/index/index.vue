@@ -70,7 +70,7 @@ export default {
       shoppName: '北国店',
       grids: [
         { src: '/static/images/icon_nav_button.png', url: '/pages/setps/setps', name: '步骤条' },
-        { src: '/static/images/icon_nav_cell.png', name: '报修' },
+        { src: '/static/images/icon_nav_cell.png',   url: '/pages/workOrder/workOrder', name: '报修' },
         { src: '/static/images/icon_nav_toast.png', name: 'Toast' },
         { src: '/static/images/icon_nav_dialog.png', name: 'Dialog' },
         { src: '/static/images/icon_nav_button.png', name: 'Progress' },
